@@ -1,10 +1,9 @@
-import { useParams } from 'react-router-dom';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-export default function Photodetails() {
-    const { id } = useParams();
-    const [photo, setPhoto] = useState(null);
+
+export default function AddPhoto() {
     const [newPhoto, setNewPhoto] = useState({
         image: '',
         name: '',
@@ -14,20 +13,7 @@ export default function Photodetails() {
         status: '',
         hair: ''
     });
-
-    useEffect(() => {
-        const fetchPhotoDetails = async () => {
-            try {
-                const response = await axios.get(`https://665736849f970b3b36c864e7.mockapi.io/login1/${id}`);
-                setPhoto(response.data);
-            } catch (error) {
-                setError('Error fetching photo details.');
-                console.error('Error fetching photo details:', error);
-            }
-        };
-
-        fetchPhotoDetails();
-    }, [id]);
+    const [error, setError] = useState(null);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -36,26 +22,17 @@ export default function Photodetails() {
 
     const handleAddPhoto = async (e) => {
         e.preventDefault();
+     
             const response = await axios.post('https://665736849f970b3b36c864e7.mockapi.io/login1', newPhoto);
             console.log('Added new photo:', response.data);
-           
       
     };
 
-
     return (
         <div className="m-9 flex flex-col items-center bg-base-100 p-9 shadow-xl">
-            <img src={photo.image} alt={photo.name} className="rounded" />
-            <small>{photo.id}</small>
-            <h2>{photo.name}</h2>
-            <p>{photo.gender}</p>
-            <p>{photo.species}</p>
-            <p>{photo.origin}</p>
-            <p>{photo.status}</p>
-            <p>{photo.description}</p>
-
             <form onSubmit={handleAddPhoto} className="mt-6 w-full max-w-md">
                 <h3 className="text-xl mb-4">Add New Photo</h3>
+                {error && <div className="alert alert-error">{error}</div>}
                 <div className="mb-4">
                     <label className="block text-sm font-bold mb-2" htmlFor="image">Image URL</label>
                     <input
@@ -140,6 +117,7 @@ export default function Photodetails() {
                     />
                 </div>
                 <button type="submit" className="btn btn-primary w-full">Add Photo</button>
+                <Link to={`/`} className="btn btn-primary my-1 w-full">Back page</Link>
             </form>
         </div>
     );

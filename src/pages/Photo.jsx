@@ -38,6 +38,7 @@ export default function Photo() {
                         <p>{photo.origin}</p>
                         <p>{photo.status}</p>
                         <Link to={`/${photo.id}`} className="btn btn-primary">View Details</Link>
+                        <Link to={`/add`} className="btn btn-primary m-2">Add Photo</Link>
                         <button onClick={() => handleDelete(photo.id)} className="btn m-2 btn-danger">Delete</button>
                     </div>
                 ))}
