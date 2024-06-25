@@ -58,7 +58,7 @@ export default function Photo() {
                             <h2>{photo.name}</h2>
                             <Link to={`/${photo.id}`} className="btn btn-primary" style={{width: '80px'}} >View Details</Link>
                             <button onClick={() => handleDelete(photo.id)}   className="btn m-2 btn-danger" style={{width: '50px'}}>Delete</button>
-                            <Link to='/edit' onClick={()=>localStorage.setItem("id",photo.id)} className="btn m-2 btn-danger" style={{width: '50px'}} >UpDate</Link>
+                            <Link to='/edit' onClick={()=>localStorage.setItem("id",photo.id)} className="btn m-2 btn-danger" style={{width: '50px'}} >Edit</Link>
                         </div>
                     ))
                 ) : (
