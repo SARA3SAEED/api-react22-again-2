@@ -35,8 +35,11 @@ export default function Editphoto() {
             origin: '',
             status: '',
             hair: ''
-        });    
+        });   
+        localStorage.clear(); 
     };
+
+
 
     return (
         // <div className="m-9 flex flex-col items-center bg-base-100 p-9 shadow-xl">
@@ -128,12 +131,14 @@ export default function Editphoto() {
                     />
                 </div>
                  <button type="submit" className="btn btn-primary w-full">Add Photo</button>
+                 <Link to={`/`} className="btn btn-primary my-1 w-full">Back page</Link>
+
             </form>
 
             
-            <div className="mx-16 flex flex-wrap rounded bg-base-100 p-9 shadow-xl">
+            <div className="mx-16 my-28 flex flex-wrap rounded bg-base-300 p-9 shadow-xl">
                
-            <div className="text-center bg-gray-100 p-7 rounded m-7" key={newPhoto.id} style={{ width: '400px' }}>
+            <div className="text-center bg-gray-100 p-7 rounded m-14" key={newPhoto.id} style={{ width: '400px' }}>
                             <img src={newPhoto.image}  className="rounded " style={{width: '350px', height: '200px' }} />
                             <small >{newPhoto.id}</small>
                             <h2 className='m-3'>{newPhoto.name}</h2>
@@ -143,7 +148,6 @@ export default function Editphoto() {
                             <p>{newPhoto.status}</p>
                             <p>{newPhoto.hair}</p>
                         </div>
-                        <Link to={`/`} className="btn btn-primary my-1 w-full">Back page</Link>
 
             </div>
         </div>
