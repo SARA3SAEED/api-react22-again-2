@@ -34,7 +34,7 @@ export default function Photo() {
         <>
                   <div className="max-w-2xl m-28 mx-auto">
             <form> 
-            <Link to={`/add`} className="btn btn-primary m-2 w-full">Add Photo</Link>
+            <Link to={`/add`} className="btn btn-primary my-2 w-full">Add Photo</Link>
               <label htmlFor="default-search" className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Search</label>
               <div className="relative">
                   <div className="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
