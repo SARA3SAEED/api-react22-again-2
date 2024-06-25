@@ -13,26 +13,20 @@ export default function AddPhoto() {
         status: '',
         hair: ''
     });
-    const [error, setError] = useState(null);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setNewPhoto({ ...newPhoto, [name]: value });
     };
 
-    const handleAddPhoto = async (e) => {
-        e.preventDefault();
-     
-            const response = await axios.post('https://665736849f970b3b36c864e7.mockapi.io/login1', newPhoto);
-            console.log('Added new photo:', response.data);
-      
+    const handleAddPhoto =  (e) => {
+        axios.post('https://665736849f970b3b36c864e7.mockapi.io/login1', newPhoto);      
     };
 
     return (
         <div className="m-9 flex flex-col items-center bg-base-100 p-9 shadow-xl">
             <form onSubmit={handleAddPhoto} className="mt-6 w-full max-w-md">
                 <h3 className="text-xl mb-4">Add New Photo</h3>
-                {error && <div className="alert alert-error">{error}</div>}
                 <div className="mb-4">
                     <label className="block text-sm font-bold mb-2" htmlFor="image">Image URL</label>
                     <input
