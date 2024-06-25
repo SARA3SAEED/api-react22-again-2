@@ -22,7 +22,16 @@ export default function AddPhoto() {
     const handleAddPhoto =  (e) => {
         e.preventDefault();
         axios.post('https://665736849f970b3b36c864e7.mockapi.io/login1', newPhoto); 
-        console.log("Add Photo")     
+        alert('Photo added successfully!');
+        setNewPhoto({
+            image: '',
+            name: '',
+            gender: '',
+            species: '',
+            origin: '',
+            status: '',
+            hair: ''
+        });    
     };
 
     return (
