@@ -30,16 +30,7 @@ export default function Photo() {
         }
     };
 
-    const handleUpDate = (photo) => {
-        localStorage.setItem("id",photo.id)
-        localStorage.setItem("name",photo.name)
-        localStorage.setItem("image",photo.image)
-        localStorage.setItem("gender",photo.gender)
-        localStorage.setItem("species",photo.species)
-        localStorage.setItem("status",photo.status)
-        localStorage.setItem("origin",photo.origin)
-        localStorage.setItem("hair",photo.hair)
-    };
+ 
 
     return (
         <>
@@ -67,7 +58,7 @@ export default function Photo() {
                             <h2>{photo.name}</h2>
                             <Link to={`/${photo.id}`} className="btn btn-primary" style={{width: '80px'}} >View Details</Link>
                             <button onClick={() => handleDelete(photo.id)}   className="btn m-2 btn-danger" style={{width: '50px'}}>Delete</button>
-                            <Link to='/edit' onClick={handleUpDate(photo)} className="btn m-2 btn-danger" style={{width: '50px'}} >UpDate</Link>
+                            <Link to='/edit' onClick={()=>localStorage.setItem("id",photo.id)} className="btn m-2 btn-danger" style={{width: '50px'}} >UpDate</Link>
                         </div>
                     ))
                 ) : (
