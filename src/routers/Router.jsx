@@ -3,6 +3,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Photo from '../pages/Photo';
 import Photodetails from '../pages/Photodetails';
 import AddPhoto from '../pages/Addphoto';
+import Editphoto from '../pages/Editphoto';
+
 
 
 
@@ -19,6 +21,10 @@ export default function Router() {
     {
         path: "/add",
         element: <AddPhoto />,
+      },
+      {
+        path: "/edit",
+        element: <Editphoto />,
       },
   ]);
 

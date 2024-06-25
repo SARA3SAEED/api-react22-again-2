@@ -30,6 +30,17 @@ export default function Photo() {
         }
     };
 
+    const handleUpDate = (photo) => {
+        localStorage.setItem("id",photo.id)
+        localStorage.setItem("name",photo.name)
+        localStorage.setItem("image",photo.image)
+        localStorage.setItem("gender",photo.gender)
+        localStorage.setItem("species",photo.species)
+        localStorage.setItem("status",photo.status)
+        localStorage.setItem("origin",photo.origin)
+        localStorage.setItem("hair",photo.hair)
+    };
+
     return (
         <>
             <div className="max-w-2xl m-28  mx-auto">
@@ -54,8 +65,9 @@ export default function Photo() {
                         <div className="text-center bg-gray-100 p-7 rounded m-7" key={photo.id} style={{ width: '300px' }}>
                             <img src={photo.image} alt={photo.name} className="rounded" style={{width: '250px', height: '200px' }} />
                             <h2>{photo.name}</h2>
-                            <Link to={`/${photo.id}`} className="btn btn-primary">View Details</Link>
-                            <button onClick={() => handleDelete(photo.id)} className="btn m-2 btn-danger">Delete</button>
+                            <Link to={`/${photo.id}`} className="btn btn-primary" style={{width: '80px'}} >View Details</Link>
+                            <button onClick={() => handleDelete(photo.id)}   className="btn m-2 btn-danger" style={{width: '50px'}}>Delete</button>
+                            <Link to='/edit' onClick={handleUpDate(photo)} className="btn m-2 btn-danger" style={{width: '50px'}} >UpDate</Link>
                         </div>
                     ))
                 ) : (
