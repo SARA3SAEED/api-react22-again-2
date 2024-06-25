@@ -20,7 +20,9 @@ export default function AddPhoto() {
     };
 
     const handleAddPhoto =  (e) => {
-        axios.post('https://665736849f970b3b36c864e7.mockapi.io/login1', newPhoto);      
+        e.preventDefault();
+        axios.post('https://665736849f970b3b36c864e7.mockapi.io/login1', newPhoto); 
+        console.log("Add Photo")     
     };
 
     return (
@@ -110,7 +112,8 @@ export default function AddPhoto() {
                         required
                     />
                 </div>
-                <button type="submit" className="btn btn-primary w-full"><Link to={`/`}>Add Photo</Link></button>
+                <button type="submit" className="btn btn-primary w-full">Add Photo</button>
+                <Link to={`/`} className="btn btn-primary my-1 w-full">Back page</Link>
             </form>
         </div>
     );
