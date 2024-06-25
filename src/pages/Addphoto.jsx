@@ -110,8 +110,7 @@ export default function AddPhoto() {
                         required
                     />
                 </div>
-                <button type="submit" className="btn btn-primary w-full">Add Photo</button>
-                <Link to={`/`} className="btn btn-primary my-1 w-full">Back page</Link>
+                <button type="submit" className="btn btn-primary w-full"><Link to={`/`}>Add Photo</Link></button>
             </form>
         </div>
     );
